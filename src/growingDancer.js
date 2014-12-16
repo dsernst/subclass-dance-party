@@ -1,5 +1,5 @@
-var makeGrowingDancer = function(top, left, timeBetweenSteps){
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var makeGrowingDancer = function(top, left, timeBetweenSteps, color){
+  makeDancer.call(this, top, left, timeBetweenSteps, color);
   this.size = 5;
   this.up = true;
 };
@@ -18,7 +18,7 @@ makeGrowingDancer.prototype.step = function(){
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
 
-  this.$node.css({'border': this.size + 'px solid yellow'});
+  this.$node.css({'border-width': this.size + 'px'});
     if (this.up){
       if (this.size <= 50){
         this.size+=10;
@@ -32,6 +32,4 @@ makeGrowingDancer.prototype.step = function(){
         this.up = true;
       }
     }
-
-  //toggleClass('grower');
 };

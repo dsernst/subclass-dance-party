@@ -1,9 +1,10 @@
 // Creates and returns a new dancer object that can step
-var makeDancer = function(top, left, timeBetweenSteps){
+var makeDancer = function(top, left, timeBetweenSteps, color){
 
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
   this.timeBetweenSteps = timeBetweenSteps;
+  this.color = color;
 
   makeDancer.prototype.step.call(this);
 
@@ -25,7 +26,8 @@ makeDancer.prototype.setPosition = function(top, left){
   //
   var styleSettings = {
     top: top,
-    left: left
+    left: left,
+    'border-color': '#' + this.color
   };
   this.$node.css(styleSettings);
 };
