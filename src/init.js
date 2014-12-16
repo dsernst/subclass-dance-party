@@ -30,6 +30,15 @@ $(document).ready(function(){
     );
 
     $('body').append(dancer.$node);
+    dancers.push(dancer);
+  });
+
+  $(".modifyDancer").on("click", function(event){
+    var functionName = $(this).data("function-name");
+    for (var i = 0; i < dancers.length; i++) {
+      dancers[i][functionName]();
+    };
+    window.unPaired = undefined;
   });
 });
 

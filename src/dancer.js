@@ -9,6 +9,8 @@ var makeDancer = function(top, left, timeBetweenSteps, color){
 
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
+  this.top = top;
+  this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
   this.color = color;
 
@@ -37,3 +39,54 @@ makeDancer.prototype.setPosition = function(top, left){
   };
   this.$node.css(styleSettings);
 };
+
+makeDancer.prototype.alignDancers = function(){
+  this.$node.css({'left': 0});
+}
+
+makeDancer.prototype.pairUp = function() {
+  if (window.unPaired===undefined) {
+    window.unPaired = window.dancers.slice();
+  };
+  var closest = {};
+  for (var i = 0; i < window.unPaired.length; i++) {
+    // debugger;
+    if (window.unPaired[i]===this){
+      continue;
+    }
+    var distance = Math.pow((this.top-window.unPaired[i].top),2) + Math.pow((this.left-window.unPaired[i].left),2);
+    if (distance > closest.distance || closest.distance === undefined){
+      closest.distance = distance;
+      closest.dancer = window.unPaired[i];
+      closest.i = i;
+    }
+  }
+  var adjustTop = (closest.dancer.top - this.top)*.90;
+  var adjustLeft = (closest.dancer.left - this.left)*.90;
+  this.$node.css({'top':this.top + adjustTop, 'left': this.left + adjustLeft});
+  window.unPaired.splice(closest.i, 1);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

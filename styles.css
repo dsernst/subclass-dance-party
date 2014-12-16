@@ -1,10 +1,12 @@
-body, html{
+body;
+html{
   height:100%;
 }
 body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  height: 800px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -28,5 +30,14 @@ body, a:link, a:visited, a:active{
   border-style: solid;
   border-radius:100px;
   position:absolute;
+  transition:top 2s, left 2s;
 }
-
+.imageDancer {
+  border: none;
+  background-repeat: no-repeat !important;
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-size: 75% !important;
+  border-radius: 0px;
+}

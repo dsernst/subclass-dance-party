@@ -14,7 +14,8 @@ var makeImageDancer = function(top, left, timeBetweenSteps, color){
 
   this.randUrl = urls[Object.keys(urls)[Math.floor(Math.random() * Object.keys(urls).length)]];
 
-  this.$node.css({'border': 'none', 'background': 'url(' + this.randUrl + ')', 'background-repeat': 'no-repeat', 'display': 'block', 'width': '500px', 'height': '500px'});
+  this.$node.addClass('imageDancer');
+  this.$node.css({'background': 'url(' + this.randUrl + ')'});
 
 };
 
