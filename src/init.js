@@ -31,6 +31,12 @@ $(document).ready(function(){
 
     $('body').append(dancer.$node);
     dancers.push(dancer);
+    $(".dancer").mouseover(function(event) {
+      var $node = $(event.target);
+      $node.addClass('spin');
+      setTimeout($node.removeClass.bind($node,'spin'), 1100);
+      // makeDancer.prototype.spin.bind(this);
+    });
   });
 
   $(".modifyDancer").on("click", function(event){
@@ -40,5 +46,7 @@ $(document).ready(function(){
     };
     window.unPaired = undefined;
   });
+
+
 });
 

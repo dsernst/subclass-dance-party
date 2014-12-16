@@ -42,7 +42,7 @@ makeDancer.prototype.setPosition = function(top, left){
 
 makeDancer.prototype.alignDancers = function(){
   this.$node.css({'left': 0});
-}
+};
 
 makeDancer.prototype.pairUp = function() {
   if (window.unPaired===undefined) {
@@ -67,7 +67,9 @@ makeDancer.prototype.pairUp = function() {
   window.unPaired.splice(closest.i, 1);
 };
 
-
+makeDancer.prototype.spin = function() {
+  this.$node.addClass('spin');
+};
 
 
 
