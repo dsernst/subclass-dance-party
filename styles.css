@@ -16,12 +16,16 @@ body, a:link, a:visited, a:active{
 .topbar{
   height:32px;
   background-color: #555;
+  z-index: 10;
+  position: relative;
 }
 .title{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
+  z-index: 1;
+  border:10px;
+  border-style: solid;
   border-radius:100px;
   position:absolute;
 }

@@ -1,4 +1,10 @@
 var makeGrowingDancer = function(top, left, timeBetweenSteps, color){
+  if (top > $('body').height() - 130) {
+    top -= 130;
+  }
+  if (left > $('body').width() - 130) {
+    left -= 130;
+  }
   makeDancer.call(this, top, left, timeBetweenSteps, color);
   this.size = 5;
   this.up = true;

@@ -17,17 +17,11 @@ makeMovingDancer.prototype.step = function(){
   // call the old version of step at the beginning of any call to this new version of step
   makeMovingDancer.prototype.oldStep.call(this);
 
-  if (this.top <= 0) {
-    this.movingUp = false;
+  if (this.top <= 0 || this.top >= $("body").height() - 30) {
+    this.movingUp = !this.movingUp;
   }
-  if (this.top >= 800) {
-    this.movingUp = true;
-  }
-  if (this.left <= 0) {
-    this.movingRight = true;
-  }
-  if (this.left >= 800) {
-    this.movingRight = false;
+  if (this.left <= 0 || this.left >= $("body").width() - 30) {
+    this.movingRight = !this.movingRight;
   }
 
   if (this.movingRight) {
