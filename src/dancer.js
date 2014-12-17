@@ -3,6 +3,9 @@ var makeDancer = function(top, left, timeBetweenSteps, color){
   if (top > $('body').height() - 30) {
     top -= 30;
   }
+  if (top < 500){
+    top += 400;
+  }
   if (left > $('body').width() - 30) {
     left -= 30;
   }
@@ -41,7 +44,9 @@ makeDancer.prototype.setPosition = function(top, left){
 };
 
 makeDancer.prototype.alignDancers = function(){
-  this.$node.css({'left': 0});
+  var newX = 2*this.top;
+
+  this.$node.css({'left': newX -200});
 };
 
 makeDancer.prototype.pairUp = function() {
@@ -61,9 +66,9 @@ makeDancer.prototype.pairUp = function() {
       closest.i = i;
     }
   }
-  var adjustTop = (closest.dancer.top - this.top)*.90;
-  var adjustLeft = (closest.dancer.left - this.left)*.90;
-  this.$node.css({'top':this.top + adjustTop, 'left': this.left + adjustLeft});
+  this.top += (closest.dancer.top - this.top)*.90;
+  this.left += (closest.dancer.left - this.left)*.90;
+  this.$node.css({'top':this.top, 'left': this.left});
   window.unPaired.splice(closest.i, 1);
 };
 
